@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AuraTask — Modern Task Flow Manager</title>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background Animated Blobs -->
+    <div class="blob-container">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <!-- Main Container -->
+    <main class="app-container">
+        <!-- App Card -->
+        <div class="glass-card">
+            <!-- Header -->
+            <header class="app-header">
+                <div class="header-main">
+                    <div class="logo-area">
+                        <div class="logo-icon">
+                            <i data-lucide="check-square"></i>
+                        </div>
+                        <div>
+                            <h1>AuraTask</h1>
+                            <p class="tagline">Elevate your daily focus</p>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme">
+                            <i data-lucide="sun" class="sun-icon"></i>
+                            <i data-lucide="moon" class="moon-icon"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Time & Date Banner -->
+                <div class="datetime-banner">
+                    <span id="current-time" class="time-display">00:00:00</span>
+                    <span class="separator">•</span>
+                    <span id="current-date" class="date-display">Saturday, June 6</span>
+                </div>
+            </header>
+
+            <!-- Stats Bar -->
+            <section class="stats-section">
+                <div class="stats-header">
+                    <span class="stats-title">Progress Overview</span>
+                    <span id="stats-percentage" class="stats-percent">0%</span>
+                </div>
+                <div class="progress-track">
+                    <div id="progress-bar" class="progress-fill" style="width: 0%"></div>
+                </div>
+                <div class="stats-details">
+                    <div class="stat-item">
+                        <span class="stat-value" id="stats-total">0</span>
+                        <span class="stat-label">Total Tasks</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" id="stats-active">0</span>
+                        <span class="stat-label">Active</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" id="stats-completed">0</span>
+                        <span class="stat-label">Completed</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Task Creation Form -->
+            <section class="creation-section">
+                <form id="task-form" class="task-form">
+                    <div class="input-wrapper">
+                        <input type="text" id="task-input" placeholder="What needs to be done?" required autocomplete="off">
+                        <button type="submit" class="submit-btn" aria-label="Add Task">
+                            <i data-lucide="plus"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- Category Selector -->
+                    <div class="category-selector">
+                        <span class="selector-label">Category:</span>
+                        <div class="category-options">
+                            <button type="button" class="cat-chip active" data-category="general">
+                                <span class="dot"></span> General
+                            </button>
+                            <button type="button" class="cat-chip" data-category="work">
+                                <span class="dot work-dot"></span> Work
+                            </button>
+                            <button type="button" class="cat-chip" data-category="personal">
+                                <span class="dot personal-dot"></span> Personal
+                            </button>
+                            <button type="button" class="cat-chip" data-category="shopping">
+                                <span class="dot shopping-dot"></span> Shopping
+                            </button>
+                            <button type="button" class="cat-chip" data-category="urgent">
+                                <span class="dot urgent-dot"></span> Urgent
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Search & Filters Toolbar -->
+            <section class="toolbar-section">
+                <div class="search-wrapper">
+                    <i data-lucide="search" class="search-icon"></i>
+                    <input type="text" id="search-input" placeholder="Search tasks..." autocomplete="off">
+                </div>
+                <div class="filter-tabs">
+                    <button class="tab-btn active" data-filter="all">All</button>
+                    <button class="tab-btn" data-filter="active">Active</button>
+                    <button class="tab-btn" data-filter="completed">Completed</button>
+                </div>
+            </section>
+
+            <!-- Task List -->
+            <section class="list-section">
+                <ul id="task-list" class="task-list">
+                    <!-- Tasks will be rendered dynamically -->
+                </ul>
+                
+                <!-- Empty State -->
+                <div id="empty-state" class="empty-state hidden">
+                    <div class="empty-icon-wrapper">
+                        <i data-lucide="clipboard-list" class="empty-icon"></i>
+                    </div>
+                    <h3 class="empty-title">All caught up!</h3>
+                    <p class="empty-text">No tasks found here. Create a new one above to get started.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
