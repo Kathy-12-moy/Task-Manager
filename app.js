@@ -28,6 +28,7 @@ let tasks = [
 let currentFilter = "all";
 let searchQuery = "";
 let selectedCategory = "general";
+let selectedCategoryFilter = "all";
 
 // ==========================================
 // DOM ELEMENTS
@@ -48,9 +49,10 @@ const statsCompleted = document.getElementById("stats-completed");
 const statsPercentage = document.getElementById("stats-percentage");
 const progressBar = document.getElementById("progress-bar");
 
-// Filter Tabs & Category Chips
+// Filter Tabs, Category Chips & Sidebar
 const filterTabs = document.querySelectorAll(".tab-btn");
 const categoryChips = document.querySelectorAll(".cat-chip");
+const sidebarItems = document.querySelectorAll(".sidebar-item");
 
 // ==========================================
 // DATE & TIME DISPLAY
@@ -96,6 +98,9 @@ function renderTasks() {
     // 1. Filter tasks
     const filteredTasks = tasks.filter(task => {
         const matchesSearch = task.title.toLowerCase().includes(searchQuery.toLowerCase());
+        const matchesCategory = selectedCategoryFilter === "all" || task.category === selectedCategoryFilter;
+        
+        if (!matchesCategory) return false;
         
         if (currentFilter === "active") {
             return !task.completed && matchesSearch;
@@ -241,6 +246,27 @@ categoryChips.forEach(chip => {
         categoryChips.forEach(c => c.classList.remove("active"));
         chip.classList.add("active");
         selectedCategory = chip.dataset.category;
+    });
+});
+
+// Sidebar Category Filter
+sidebarItems.forEach(item => {
+    item.addEventListener("click", () => {
+        sidebarItems.forEach(s => s.classList.remove("active"));
+        item.classList.add("active");
+        selectedCategoryFilter = item.dataset.categoryFilter;
+        
+        // Sync the form's category selector with the chosen category
+        if (selectedCategoryFilter !== "all") {
+            categoryChips.forEach(chip => {
+                chip.classList.toggle("active", chip.dataset.category === selectedCategoryFilter);
+                if (chip.dataset.category === selectedCategoryFilter) {
+                    selectedCategory = selectedCategoryFilter;
+                }
+            });
+        }
+        
+        renderTasks();
     });
 });
 
