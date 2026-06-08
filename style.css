@@ -14,7 +14,7 @@
     --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
     --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.1);
     --shadow-lg: 0 16px 36px rgba(0, 0, 0, 0.15);
-    --shadow-glow: 0 0 20px rgba(99, 102, 241, 0.4);
+    --shadow-glow: 0 0 20px rgba(16, 185, 129, 0.4);
 
     /* Category Hues */
     --cat-general: 210, 16%, 60%;
@@ -27,9 +27,9 @@
 /* Dark Theme (Default) */
 [data-theme="dark"] {
     --bg-gradient: linear-gradient(135deg, #0f111a 0%, #0a0b10 100%);
-    --blob-1: rgba(99, 102, 241, 0.15);   /* Indigo */
-    --blob-2: rgba(139, 92, 246, 0.15);  /* Violet */
-    --blob-3: rgba(236, 72, 153, 0.1);   /* Pink */
+    --blob-1: rgba(16, 185, 129, 0.15);   /* Green */
+    --blob-2: rgba(52, 211, 153, 0.15);  /* Teal */
+    --blob-3: rgba(34, 197, 94, 0.1);   /* Green */
     
     --card-bg: rgba(25, 27, 38, 0.65);
     --card-border: rgba(255, 255, 255, 0.08);
@@ -41,10 +41,10 @@
     
     --input-bg: rgba(15, 17, 26, 0.6);
     --input-border: rgba(255, 255, 255, 0.06);
-    --input-focus-border: rgba(99, 102, 241, 0.6);
+    --input-focus-border: rgba(16, 185, 129, 0.6);
     
-    --btn-primary: #6366f1;
-    --btn-primary-hover: #4f46e5;
+    --btn-primary: #10b981;
+    --btn-primary-hover: #059669;
     --btn-primary-text: #ffffff;
     
     --item-bg: rgba(30, 32, 45, 0.4);
@@ -59,9 +59,9 @@
 /* Light Theme */
 [data-theme="light"] {
     --bg-gradient: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
-    --blob-1: rgba(99, 102, 241, 0.08);
-    --blob-2: rgba(139, 92, 246, 0.08);
-    --blob-3: rgba(236, 72, 153, 0.05);
+    --blob-1: rgba(16, 185, 129, 0.08);
+    --blob-2: rgba(52, 211, 153, 0.08);
+    --blob-3: rgba(34, 197, 94, 0.05);
     
     --card-bg: rgba(255, 255, 255, 0.75);
     --card-border: rgba(255, 255, 255, 0.6);
@@ -73,10 +73,10 @@
     
     --input-bg: rgba(255, 255, 255, 0.8);
     --input-border: rgba(0, 0, 0, 0.08);
-    --input-focus-border: rgba(99, 102, 241, 0.5);
+    --input-focus-border: rgba(16, 185, 129, 0.5);
     
-    --btn-primary: #6366f1;
-    --btn-primary-hover: #4f46e5;
+    --btn-primary: #10b981;
+    --btn-primary-hover: #059669;
     --btn-primary-text: #ffffff;
     
     --item-bg: rgba(255, 255, 255, 0.7);
@@ -215,7 +215,7 @@ body {
 .logo-icon {
     width: 42px;
     height: 42px;
-    background: linear-gradient(135deg, var(--btn-primary) 0%, #8b5cf6 100%);
+    background: linear-gradient(135deg, var(--btn-primary) 0%, #34d399 100%);
     color: var(--btn-primary-text);
     display: flex;
     justify-content: center;
@@ -329,7 +329,7 @@ body {
 .progress-track {
     width: 100%;
     height: 8px;
-    background: rgba(99, 102, 241, 0.1);
+    background: rgba(16, 185, 129, 0.1);
     border-radius: 4px;
     overflow: hidden;
     margin-bottom: 14px;
@@ -337,7 +337,7 @@ body {
 
 .progress-fill {
     height: 100%;
-    background: linear-gradient(90deg, var(--btn-primary) 0%, #ec4899 100%);
+    background: linear-gradient(90deg, var(--btn-primary) 0%, #34d399 100%);
     border-radius: 4px;
     width: 0%;
     transition: width var(--transition-normal);
@@ -403,7 +403,7 @@ body {
 #task-input:focus {
     outline: none;
     border-color: var(--input-focus-border);
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
 }
 
 .submit-btn {
@@ -473,7 +473,7 @@ body {
 }
 
 .cat-chip.active {
-    background: rgba(99, 102, 241, 0.15);
+    background: rgba(16, 185, 129, 0.15);
     border-color: var(--btn-primary);
     color: var(--text-primary);
 }
@@ -654,7 +654,7 @@ body {
 
 .custom-checkbox:hover {
     border-color: var(--btn-primary);
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
 }
 
 .custom-checkbox i {
